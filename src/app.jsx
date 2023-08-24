@@ -18,10 +18,24 @@ const root = createRoot(document.getElementById('root'));
 );*/
 
 window.iData = 0;
+window.getData = getData;
+window.cacheData = {};
+
 async function getData( to ) {
+  let data = window.cacheData[encodeURIComponent(to)];
+
+  if( data ) {
+     function promiseCache(data) {
+        return new Promise( function( resolve, reject ) {
+            resolve( data );
+        })
+    }
+
+    return promiseCache(data);
+  }
   let res = {};
   try {
-    let data = await fetch(siteUrl+to+'?api=1&i='+window.iData );
+    data = await fetch(siteUrl+to+'?api=1&i='+window.iData );
     res = await data.json();
   } catch( e ) {
 
@@ -54,9 +68,6 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-window.getData = getData;
-window.cacheData = {};
 
 window.datas = function() {
   return window.cacheData[encodeURIComponent(window.location.pathname)]?window.cacheData[encodeURIComponent(window.location.pathname)]:window;
