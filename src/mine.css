@@ -1,0 +1,146 @@
+@font-face{font-family:"vazir";src:url(fonts/vazir/Vazir-Medium-FD.eot);src:url(fonts/vazir/Vazir-Medium-FD.eot?#iefix) format("embedded-opentype"),url(fonts/vazir/Vazir-Medium-FD.woff) format("woff"),url(fonts/vazir/Vazir-Medium-FD.ttf) format("truetype");font-weight:400;font-style:normal} 
+
+
+body {
+	direction: rtl;
+	text-align: right;
+}
+
+body,a,h1,h2,h3,h4,h5,h6,input,select,textarea,p {
+	font-family: vazir;
+}
+
+.articles-info .comments ol li .comment-content p {
+	font-family: vazir;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+	font-weight: normal;
+}
+
+h1, .h1 {
+    font-size: 29px; 
+}
+
+@media (min-width: 1200px) {
+	.container {
+	    width: 1100px;
+	}
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.5rem + 2px);
+}
+
+.form-control {
+    padding: 7px 10px;
+}
+
+.articles article .articles-header .articles-header-category {
+	float: left;
+}
+
+
+.articles-footer > ul {
+	float: left;
+}
+
+
+.hljs {
+	direction: ltr;
+	text-align: left;
+}
+
+.articles article[class*="-article"]:before {
+	right: -15px;
+}
+
+@media (min-width: 991px) {
+	.header-nav ul li {
+		float: right;
+	}
+}
+.author .author-nav li a {
+	text-align: right;
+}
+
+.author .author-nav li a i {
+	left: auto;
+	right: -15px;
+}
+
+.categories ul li a {
+	padding-right: 50px;
+}
+
+.articles nav .pagination-back {
+	float: right;
+}
+
+.articles nav .pagination-next {
+	float: left;
+}
+
+.page-item {
+	float: right;
+}
+
+p, .articles nav .pagination .page-item .page-link {
+	font-size: 17px;
+}
+
+@media (max-width: 991px) {
+	.aside-blocks aside:nth-child(odd) {
+	    margin-right: 0 !important;
+	}
+	aside.author {
+		margin-right: 0 !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.articles article[class*="-article"]:before {
+	    top: 0px;
+	}	
+}
+
+
+.articles nav .pagination .page-item .page-link {
+    padding: 7px 14px;
+}
+
+
+body {
+    font-size: 1.1rem;
+}
+
+.articles-info .comments ol li img {
+    float: right;
+}
+
+.articles-info .comments ol li .comment-content time {
+    right:  auto;
+    left: 0;
+}
+
+.articles-info .comments ol li .comment-content {
+    margin: 8px 20px 0 0;
+}
+
+.articles-info .comments ol li .comment-content .comment-content-footer .comment-content-footer-icon {
+    float: left;
+}
+
+.articles-info .comments ol li .comment-content .comment-content-footer .comment-content-footer-icon i {
+	left: auto;
+    right: -36px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+
+pre code.hljs {
+    max-height: 300px;
+}
