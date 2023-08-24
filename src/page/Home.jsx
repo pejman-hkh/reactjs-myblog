@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Pagination, RightSide, Loading } from "../Features.jsx";
 import { useParams } from 'react-router';
 import { Link } from "../Features.jsx";
+import scripts from "../js/script.js";
+
 
 export default function Home() {
   const [pages, setPages] = useState(window.pagination||{});
@@ -13,6 +15,7 @@ export default function Home() {
   useEffect(() => {
       setPosts(datas().posts);
       setPages(datas().pagination);
+      scripts();
       window.iData++;
   }, [location]);
 
@@ -42,7 +45,7 @@ export default function Home() {
                       </article>
                     
                     )}
-                   <Pagination pages={pages} />
+                   <Pagination pages={pages} params={params} />
                 </section>
             </div>
             <RightSide />

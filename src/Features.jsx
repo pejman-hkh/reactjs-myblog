@@ -33,7 +33,7 @@ export function Pagination({ ...props }) {
         <ul className="pagination">
             
             {pages.map( i =>
-            <li key={i} className={"page-item "+(params.page == i ? ' active' : '')}>
+            <li key={i} className={"page-item "+(props.params.page == i ? ' active' : '')}>
                 <Link className="page-link" to={baseUrl+mcontroller+"/"+(params1?params1+'/':'')+"page/"+i+queryString}>{i}</Link>
             </li>
             )}

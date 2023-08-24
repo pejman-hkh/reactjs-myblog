@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import { Pagination, RightSide, Loading } from "../Features.jsx";
-//import pejiForm from "../js/jquery.pejiform";
 import { Link } from "../Features.jsx";
 import Form from "../components/Form.jsx";
+import scripts from "../js/script.js";
 
 export default function Post() {
 
@@ -12,8 +12,8 @@ export default function Post() {
 	
     const location = useLocation();
 	useEffect(() => {
-        //pejiForm();
 		setHPost(datas().hpost);
+        scripts();
         window.iData++;
 	}, [location]);
 

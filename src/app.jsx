@@ -8,7 +8,6 @@ window.baseUrl = '/';
 import Home from "./page/Home.jsx";
 import About from "./page/About.jsx";
 import NoPage from "./page/NoPage.jsx";
-
 window.siteUrl = 'https://www.peji.ir';
 
 const root = createRoot(document.getElementById('root'));
@@ -26,6 +25,7 @@ async function getData( to ) {
   } catch( e ) {
 
   }
+
   window.scrollTo(0,0);
   return res;
 }
