@@ -8,7 +8,7 @@ export function Header() {
     if(authUser.id) {
       authMenu =
         <ul className="pull-left">
-           <li className="dropdown"> <Link to="/">{authUser.name} Welcome</Link>
+           <li className="dropdown"> <Link to="/index">{authUser.name} Welcome</Link>
             <ul className="dropdown-menu">
                 <li className="nav-elipse-blue"><a href={baseUrl+"manager"}>Manager</a></li>
                 <li className="nav-elipse-blue"><a href={baseUrl+"user/logout"}>Logout</a></li>
