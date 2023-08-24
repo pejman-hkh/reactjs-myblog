@@ -13,7 +13,13 @@ export function Form({ children, ...props }) {
 		const data = new FormData(e.target);
 		if( ! submitted )
 			return;
-		
+
+		const submit = $(e.target).find("button[type='submit']");
+
+		const submitHtml = submit.html();
+
+		submit.html('بارگزاری ...');
+
 		submitted = false;
 		fetch(props.action+'?ajax',
 		{
@@ -29,7 +35,9 @@ export function Form({ children, ...props }) {
 				alert.removeClass('alert-success').addClass('alert-danger');
 
 			alert.html(data.msg)
-			window.scrollTo( 0, alert[0].getBoundingClientRect().top + window.scrollY );
+			window.scrollTo( 0, alert[0].getBoundingClientRect().top + window.scrollY - 100 );
+			submit.html(submitHtml);
+		
 		});
 	}
 
