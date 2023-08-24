@@ -8,6 +8,7 @@ window.baseUrl = '/';
 import Home from "./page/Home.jsx";
 import About from "./page/About.jsx";
 import NoPage from "./page/NoPage.jsx";
+import Login from "./page/Login.jsx";
 window.siteUrl = 'https://www.peji.ir';
 
 const root = createRoot(document.getElementById('root'));
@@ -42,6 +43,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="user/login" element={<Login />} />
           <Route path="about" element={<About />} />
           <Route path="index/page/:id" element={<Home />} />
           <Route path="index/cat/:id" element={<Home />} />

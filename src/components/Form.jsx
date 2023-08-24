@@ -14,14 +14,14 @@ export function Form({ children, ...props }) {
 		if( ! submitted )
 			return;
 
-		const submit = $(e.target).find("button[type='submit']");
+		let submit = $(e.target).find("button[type='submit']");
 
 		const submitHtml = submit.html();
 
 		submit.html('بارگزاری ...');
 
 		submitted = false;
-		fetch(props.action+'?ajax',
+		fetch(siteUrl+(props.action?props.action:window.location.pathname)+'?ajax',
 		{
 		    method: "POST",
 		    body: data
@@ -29,12 +29,14 @@ export function Form({ children, ...props }) {
 		.then(function(res){ return res.json(); })
 		.then(function(data){
 			submitted = true;
+			if( data.data.redirect ) window.location.href = data.data.redirect;
+
 			if( data.status == 1 )
 				alert.removeClass('alert-danger').addClass('alert-success');
 			else
 				alert.removeClass('alert-success').addClass('alert-danger');
 
-			alert.html(data.msg)
+			alert.html(data.msg);
 			window.scrollTo( 0, alert[0].getBoundingClientRect().top + window.scrollY - 100 );
 			submit.html(submitHtml);
 		
