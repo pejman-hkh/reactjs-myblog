@@ -13,8 +13,7 @@ export default function Post() {
     const location = useLocation();
 	useEffect(() => {
 		setHPost(datas().hpost);
-        //scripts();
-        window.iData++;
+   
 	}, [location]);
 
 	return (<div className="container">

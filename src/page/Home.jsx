@@ -13,8 +13,7 @@ export default function Home() {
   useEffect(() => {
       setPosts(datas().posts);
       setPages(datas().pagination);
-      //scripts();
-      window.iData++;
+
   }, [location]);
 
   return (

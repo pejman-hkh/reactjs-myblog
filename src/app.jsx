@@ -6,7 +6,6 @@ import { Loading } from "./Features.jsx";
 window.baseUrl = '/';
 
 import Home from "./page/Home.jsx";
-import About from "./page/About.jsx";
 import NoPage from "./page/NoPage.jsx";
 import Login from "./page/Login.jsx";
 window.siteUrl = 'https://www.peji.ir';
@@ -17,7 +16,7 @@ const root = createRoot(document.getElementById('root'));
   <Layout1><Loading /></Layout1>
 );*/
 
-window.iData = 0;
+let iData = 0;
 window.getData = getData;
 window.cacheData = {};
 
@@ -35,12 +34,12 @@ async function getData( to ) {
   }
   let res = {};
   try {
-    data = await fetch(siteUrl+to+'?api=1&i='+window.iData );
+    data = await fetch(siteUrl+to+'?api=1&i='+iData );
     res = await data.json();
   } catch( e ) {
 
   }
-
+  iData++;
   window.scrollTo(0,0);
   return res;
 }
@@ -58,7 +57,6 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="user/login" element={<Login />} />
-          <Route path="about" element={<About />} />
           <Route path="index/page/:id" element={<Home />} />
           <Route path="index/cat/:id" element={<Home />} />
           <Route path="index" element={<Home />} />

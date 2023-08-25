@@ -8,7 +8,7 @@ export default function Login({...props}) {
   const location = useLocation();
 
   useEffect(() => {
-      window.iData++;
+   
   }, [location]);
 
 	return (<div class="container">
