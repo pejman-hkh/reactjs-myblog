@@ -1,26 +1,29 @@
 import { useEffect } from 'react';
 
 export function useScript( url ) {
-  return new Promise(async (resolve, reject) => {
-    const script = document.createElement('script');
+  return new Promise( async (resolve, reject) => {
 
-    script.src = url;
-    script.async = true;
+      const script = document.createElement('script');
 
-    script.addEventListener('load', () => {
-      resolve(script)
-    });
+      script.src = url;
+      script.async = true;
 
-    script.addEventListener('error', () => {
-      reject(new Error(`${url} failed to load.`))
-    });
+      script.addEventListener('load', () => {
+        resolve(script)
+      });
 
-    document.body.appendChild(script);
+      script.addEventListener('error', () => {
+        reject(new Error(`${url} failed to load.`))
+      });
+
+      document.body.appendChild(script);
+
   });
 }
 
 export function useCss(url) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise( async (resolve, reject) => {
+
     const link = document.createElement('link');
     link.rel = "stylesheet";
     link.type = "text/css";
@@ -36,6 +39,8 @@ export function useCss(url) {
     });
 
     document.head.appendChild(link);
+   
+
   });
 }
 
