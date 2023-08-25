@@ -70,13 +70,7 @@ module.exports = {
     ]
   },
   devServer: {
-/*    devMiddleware: {
-      index: true,
-      mimeTypes: { phtml: 'text/html' },
-      publicPath: '/dist',
-      serverSideRender: true,
-      writeToDisk: true,
-    },*/          
+        
     historyApiFallback: true,
     client: {
       overlay: {

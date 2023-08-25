@@ -1,18 +1,42 @@
 import { useEffect } from 'react';
 
-const useScript = url => {
-  useEffect(() => {
+export function useScript( url ) {
+  return new Promise(async (resolve, reject) => {
     const script = document.createElement('script');
 
     script.src = url;
     script.async = true;
 
-    document.body.appendChild(script);
+    script.addEventListener('load', () => {
+      resolve(script)
+    });
 
-    return () => {
-      document.body.removeChild(script);
-    }
-  }, [url]);
-};
+    script.addEventListener('error', () => {
+      reject(new Error(`${url} failed to load.`))
+    });
+
+    document.body.appendChild(script);
+  });
+}
+
+export function useCss(url) {
+  return new Promise(async (resolve, reject) => {
+    const link = document.createElement('link');
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+    link.async = true;
+
+    link.addEventListener('load', () => {
+      resolve(link)
+    });
+
+    link.addEventListener('error', () => {
+      reject(new Error(`${url} failed to load.`))
+    });
+
+    document.head.appendChild(link);
+  });
+}
 
 export default useScript;

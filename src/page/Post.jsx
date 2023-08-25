@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { RightSide } from "../Features.jsx";
 import { Link } from "../Features.jsx";
 import Form from "../components/Form.jsx";
-//import scripts from "../js/script.js";
+import scripts from "../js/script.js";
 
 export default function Post() {
 
@@ -13,7 +13,7 @@ export default function Post() {
     const location = useLocation();
 	useEffect(() => {
 		setHPost(datas().hpost);
-   
+        scripts();
 	}, [location]);
 
 	return (<div className="container">

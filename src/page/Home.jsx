@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import { Pagination, RightSide, Loading } from "../Features.jsx";
 import { Link } from "../Features.jsx";
-//import scripts from "../js/script.js";
+import scripts from "../js/script.js";
 
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
       setPosts(datas().posts);
       setPages(datas().pagination);
-
+      scripts();
   }, [location]);
 
   return (
