@@ -1,5 +1,42 @@
 import { useEffect } from 'react';
 
+
+export function LazyLoad( nodelists, callback ) {
+  let lazyElements = [].slice.call(nodelists);
+  let active = false;
+
+  const lazyLoad = function() {
+    if (active === false) {
+      active = true;
+
+      setTimeout(function() {
+        lazyElements.forEach(function(lazyElement) {
+          if ((lazyElement.getBoundingClientRect().top <= window.innerHeight && lazyElement.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyElement).display !== "none") {
+            callback(lazyElement);
+            lazyElement.classList.remove("lazy");
+            lazyElements = lazyElements.filter(function(image) {
+              return image !== lazyElement;
+            });
+
+            if (lazyElements.length === 0) {
+              document.removeEventListener("scroll", lazyLoad);
+              window.removeEventListener("resize", lazyLoad);
+              window.removeEventListener("orientationchange", lazyLoad);
+            }
+          }
+        });
+
+        active = false;
+      }, 200);
+    }
+  };
+
+  document.addEventListener("scroll", lazyLoad);
+  window.addEventListener("resize", lazyLoad);
+  window.addEventListener("orientationchange", lazyLoad);
+  lazyLoad();
+}
+
 let loadedScripts = {};
 let loadedCss = {};
 export function useScript( url ) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import { Pagination, RightSide, Loading } from "../Features.jsx";
 import { Link } from "../Features.jsx";
@@ -13,8 +13,11 @@ export default function Home() {
   useEffect(() => {
       setPosts(datas().posts);
       setPages(datas().pagination);
-      scripts();
   }, [location]);
+
+  useLayoutEffect( ()=> {
+    scripts();
+  });
 
   return (
     <div className="container">

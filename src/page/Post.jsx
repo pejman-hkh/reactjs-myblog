@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import { RightSide } from "../Features.jsx";
 import { Link } from "../Features.jsx";
@@ -13,8 +13,11 @@ export default function Post() {
     const location = useLocation();
 	useEffect(() => {
 		setHPost(datas().hpost);
-        scripts();
 	}, [location]);
+
+    useLayoutEffect( ()=> {
+        scripts();
+    });
 
 	return (<div className="container">
         <div className="row">
