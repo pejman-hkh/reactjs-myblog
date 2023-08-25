@@ -55,8 +55,7 @@ sass = {
 };
 
 module.exports = {
-  //mode: 'production',
-  mode: 'development',
+  mode: process.argv[2] == 'serve'?'development':'production',
   entry: ["./src/app.jsx", "./src/style.scss"],
   output: {
       filename: 'bundle.js',
