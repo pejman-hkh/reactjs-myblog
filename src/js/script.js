@@ -6,25 +6,17 @@ useCss('https://cdn.jsdelivr.net/npm/simplemde-rtl@latest/dist/simplemde-rtl.min
 const mde = useScript('https://cdn.jsdelivr.net/npm/simplemde-rtl@latest/dist/simplemde-rtl.min.js');
 
 export default function scripts() {
-    mde.then(function() {
-        new SimpleMDE({ element: document.querySelector("textarea[name='note']") });
-    });
-  
+  mde.then(function() {
+    const textarea = document.querySelector("textarea[name='note']");
+    if( textarea && ! textarea.getAttribute('mde') ) {    
+      textarea.setAttribute('mde', 1);
+      new SimpleMDE({ element:  textarea });
+    }
+  });
 
-    highligh.then(function() {
-        document.querySelectorAll('pre code').forEach((el) => {
-          hljs.highlightElement(el);
-        });
-    });
-
-/*    let interval1 = setInterval(function() {
-      if(typeof hljs !== 'undefined') {
-        document.querySelectorAll('pre code').forEach((el) => {
-          hljs.highlightElement(el);
-        });
-        clearInterval(interval1);
-      }
-
-    }, 6000 );*/
-
+  highligh.then(function() {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+  });
 }
