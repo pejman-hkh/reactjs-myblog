@@ -29,9 +29,10 @@ export function Pagination({ ...props }) {
 	}
 
 	return <nav aria-label="..."> 
-        <Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+'/':'')+"page/"+pagination.prev+queryString} className="btn-small-white pagination-back">قبلی</Link>
         <ul className="pagination">
             
+            <li className="page-item"><Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+'/':'')+"page/"+pagination.prev+queryString} className="btn-small-white pagination-back">قبلی</Link></li>
+
             {pages.map( i =>
             <li key={i} className={"page-item "+(props.params.page == i ? ' active' : '')}>
                 <Link className="page-link" to={baseUrl+mcontroller+"/"+(params1?params1+'/':'')+"page/"+i+queryString}>{i}</Link>
@@ -40,9 +41,11 @@ export function Pagination({ ...props }) {
 
             <li className="page-item page-item-more"><a className="page-link" href="#">...</a></li>
       
-            <Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+"/":"")+"page/"+pagination.endPage+queryString} className="btn-small-white pagination-back">{pagination.endPage}</Link>
+            <li className="page-item"><Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+"/":"")+"page/"+pagination.endPage+queryString} className="btn-small-white pagination-back">{pagination.endPage}</Link></li>
+
+            <li className="page-item ml-2"><Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+"/":"")+"page/"+pagination.next+queryString} className="btn-small-white pagination-next">بعدی</Link></li>
+
         </ul>
-        <Link title="" to={baseUrl+mcontroller+"/"+(params1?params1+"/":"")+"page/"+pagination.next+queryString} className="btn-small-white pagination-next">بعدی</Link>
 	</nav>
 }
 
