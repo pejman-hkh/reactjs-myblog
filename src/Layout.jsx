@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom";
-import { Link } from "./Features.jsx";
+import { Link, LeftSide } from "./Features.jsx";
 
 let authMenu = '';
 export function Header() {
@@ -162,6 +162,27 @@ export function Layout1( { children, ...props }) {
       <Header />
       <Main>
         {children}
+      </Main>
+      <Footer />
+    </>
+    );
+}
+
+export function LayoutLeftSide( { children, ...props }) {
+  return (
+    <>
+      <Header />
+      <Main>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-8 col-xs-12">
+                    <Outlet />
+                </div>
+                <div className="aside-blocks col-lg-4 col-xs-12">
+                <LeftSide />
+                </div>
+            </div>
+        </div>
       </Main>
       <Footer />
     </>

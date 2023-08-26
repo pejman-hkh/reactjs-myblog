@@ -49,10 +49,9 @@ export function Pagination({ ...props }) {
 	</nav>
 }
 
-export function RightSide() {
+export function LeftSide() {
 
-    return <div className="aside-blocks col-lg-4 col-xs-12">
-        <aside className="author">
+    return <><aside className="author">
             <img src={baseUrl+"img/profile-picture.png"} alt="" data-rjs="2" />
             <h2>{settings.name}</h2>
             <span className="author-info">{settings.shortdesc}</span>
@@ -76,8 +75,7 @@ export function RightSide() {
                 )}
             </ul>
         </aside>
-    </div>
-
+        </>;
 }
 
 export function Loading() {

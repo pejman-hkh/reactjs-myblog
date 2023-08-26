@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import Layout, { Layout1 } from "./Layout.jsx";
+import Layout, { LayoutLeftSide } from "./Layout.jsx";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { Loading } from "./Features.jsx";
 window.baseUrl = '/';
@@ -54,7 +54,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<LayoutLeftSide />}>
           <Route index element={<Home />} />
           <Route path="user/login" element={<Login />} />
           <Route path="index/page/:id" element={<Home />} />
